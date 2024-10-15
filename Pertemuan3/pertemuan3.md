@@ -1,9 +1,8 @@
 # <h1 align="center">Laporan Praktikum Modul 3-Perulangan & Percabangan</h1>
 
-
 <h1 align="center">QONITA RAHAYU ATMI-2311102128</h1>
 
-A. Soal Latihan
+<h1>A. Soal Latihan</h1>
 
 ### 1. Soal Latihan 1
 
@@ -92,7 +91,7 @@ func main() {
 
 ![Output ss_SoalLatihan2!](assets/ss_SoalLatihan2.png)
 
-B. Tugas
+<h1>B. Tugas</h1>
 
 ### 1. Tugas Soal 1 Perulangan
 
@@ -195,44 +194,47 @@ import (
 	"fmt"
 )
 
-func main() {
-	for i := 1; i <= 3; i++ {
-		var beratParsel, kg, gram int
-		var biayaPerKg, biayaSisa, totalBiaya int
+func hitungBiayaPos(berat int) (kg, sisaGram, biayaKg, biayaSisaGram int, biayaDitambahkan bool) {
+	const biayaPerKg = 10000
+	kg = berat / 1000
+	sisaGram = berat % 1000
+	biayaKg = kg * biayaPerKg
+	biayaDitambahkan = true 
 
-		// Input berat parsel dalam gram
-		fmt.Printf("Contoh #%d:\n", i)
-		fmt.Print("Berat parsel (gram): ")
-		fmt.Scan(&beratParsel)
-
-		// berat dalam kg dan sisa gram
-		kg = beratParsel / 1000
-		gram = beratParsel % 1000
-
-		//  biaya per kg 
-		biayaPerKg = kg * 10000
-
-		// biaya sisa berdasarkan gram
-		if gram > 0 && kg < 10 {
-			if gram <= 500 {
-				biayaSisa = gram * 5
-			} else {
-				biayaSisa = gram * 15
-			}
+	// jika berat total >= 10kg, sisa gram tidak menambah biaya total
+	if kg >= 10 {
+		biayaSisaGram = sisaGram * 5
+		biayaDitambahkan = false    
+	} else {
+		// menghitung biaya untuk sisa gram jika berat kurang dari 10kg
+		if sisaGram >= 500 {
+			biayaSisaGram = sisaGram * 5
 		} else {
-			biayaSisa = 0 
+			biayaSisaGram = sisaGram * 15
+		}
+	}
+	return
+}
+
+func main() {
+	for contoh := 1; contoh <= 3; contoh++ {
+		var berat int
+		fmt.Printf("\nContoh #%d", contoh)
+		fmt.Print("\nInput Berat untuk (gram): ")
+		fmt.Scan(&berat)
+
+		kg, sisaGram, biayaKg, biayaSisaGram, biayaDitambahkan := hitungBiayaPos(berat)
+		totalBiaya := biayaKg
+		if biayaDitambahkan {
+			totalBiaya += biayaSisaGram
 		}
 
-		// total biaya
-		totalBiaya = biayaPerKg + biayaSisa
-
-		// Output 
-		fmt.Printf("Detail berat: %d kg + %d gram\n", kg, gram)
-		fmt.Printf("Detail biaya: Rp. %d + Rp. %d\n", biayaPerKg, biayaSisa)
-		fmt.Printf("Total biaya: Rp. %d\n\n", totalBiaya)
+		// Tampilkan output sesuai dengan format di gambar
+		fmt.Printf("Berat parsel (gram): %d\n", berat)
+		fmt.Printf("Detail berat: %d kg + %d gr\n", kg, sisaGram)
+		fmt.Printf("Detail biaya: Rp. %d + Rp. %d\n", biayaKg, biayaSisaGram)
+		fmt.Printf("Total biaya: Rp. %d\n", totalBiaya)
 	}
-
-	fmt.Println("Proses selesai.")
 }
 ```
 
