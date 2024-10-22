@@ -247,7 +247,7 @@ func main() {
 ![Output ss_soal2_fungsi!](assets/ss_soal2_fungsi.png)
 
 
-### 3. Tugas Soal 2 Proseedur
+### 3. Tugas Soal 2 Prosedur
 
 ```go
 package main
@@ -367,7 +367,7 @@ func main() {
 ![Output ss_soal3_prosedur!](assets/ss_soal3_prosedur.png)
 
 
-### 4. Tugas Soal 3 Proseedur
+### 4. Tugas Soal 3 Prosedur
 
 ```go
 package main
