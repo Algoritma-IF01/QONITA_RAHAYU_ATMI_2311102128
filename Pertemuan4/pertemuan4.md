@@ -133,7 +133,7 @@ func main(){
 
 <h1>B. Tugas</h1>
 
-### 1. Tugas Soal 1 Fungsi
+### 1. Tugas Soal 2 Fungsi
 
 ```go
 package main
@@ -189,7 +189,7 @@ func main() {
 ![Output ss_soal1_fungsi!](assets/ss_soal1_fungsi.png)
 
 
-### 2. Tugas Soal 2 Fungsi
+### 2. Tugas Soal 3 Fungsi
 
 ```go
 package main
@@ -247,7 +247,7 @@ func main() {
 ![Output ss_soal2_fungsi!](assets/ss_soal2_fungsi.png)
 
 
-### 3. Tugas Soal 3 Proseedur
+### 3. Tugas Soal 2 Proseedur
 
 ```go
 package main
